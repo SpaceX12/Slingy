@@ -1,4 +1,4 @@
-class Sling{
+class rope{
     constructor(bodyA, pointB){
         var options = {
             bodyA: bodyA,
@@ -6,21 +6,21 @@ class Sling{
             stiffness: 0.04,
             length: 10
         }
-         this.sling = Constraint.create(options);
-        World.add(world, this.sling);
+         this.rope = Constraint.create(options);
+        World.add(world, this.rope);
     }
 
     fly(){
-        this.sling.bodyA = null;
+        this.rope.bodyA = null;
     }
 
     attach(body){
-        this.sling.bodyA = body;
+        this.rope.bodyA = body;
     }
 
     display(){
-        if(this.sling.bodyA){
-            var pointA = this.sling.bodyA.position;
+        if(this.rope.bodyA){
+            var pointA = this.rope.bodyA.position;
             var pointB = this.pointB;
             push();
             

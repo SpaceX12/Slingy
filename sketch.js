@@ -5,7 +5,7 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 var ground1, ground2, ground3;
-var bullet;
+var bullet, box1, box2, box3, box4;
 
 var gameState = "readyToLaunch";
 
@@ -15,16 +15,21 @@ function setup(){
     engine = Engine.create();
     world = engine.world;
 
-    ground1 = new Ground(1050, 180, 18, 5);
-    ground2 = new Ground(1050, 370, 21, 5);
-    ground3 = new Ground(20, 370, 30, 5);
+    ground1 = new Ground(1020, 180, 108, 10);
+    ground2 = new Ground(1020, 370, 110, 10);
+    ground3 = new Ground(120, 430, 200, 20);
 
-    bullet = new Bullet(200, 350);
+    bullet = new Bullet(200, 35);
     sling = new Sling(bullet.body, {x:200, y:350});
+
+    box1 = new Target(1019, 375);
+    box2 = new Target(1019, 375);
+    box3 = new Target(1019, 175);
+    box4 = new Target(1019, 165); 
 }    
 
 function draw(){
-    background(255, 255, 255);
+    background(0);
     Engine.update(engine);
     
     ground1.display();
@@ -32,6 +37,12 @@ function draw(){
     ground3.display();
 
     bullet.display();
+    sling.display();
+
+    box1.display();
+    box2.display();
+    box3.display();
+    box4.display();
      
 }
 

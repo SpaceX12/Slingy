@@ -6,8 +6,8 @@ class Bullet{
         density:1.2
       }
       this.body = Bodies.rectangle(x, y, width, height, options);
-      this.width = 5;
-      this.height = 5;
+      this.width = 10;
+      this.height = 15;
 
       World.add(world, this.body);
     }
@@ -15,7 +15,7 @@ class Bullet{
     display() {
       var pos= this.body.position;
       rectMode(CENTER);
-      fill(54, 90, 82);
+      fill(255, 255, 255);
       rect(pos.x, pos.y, this.width, this.height);
     }
   }
