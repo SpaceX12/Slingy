@@ -4,7 +4,7 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
-var ground1, ground2, ground3;
+var ground1, ground2, ground3, gun;
 var bullet, box1, box2, box3, box4;
 
 var gameState = "readyToLaunch";
@@ -20,7 +20,7 @@ function setup(){
     ground3 = new Ground(120, 430, 200, 20);
 
     bullet = new Bullet(200, 35);
-    sling = new Sling(bullet.body, {x:200, y:350});
+    gun = new Rope(bullet.body, {x:200, y:350});
 
     box1 = new Target(1019, 375);
     box2 = new Target(1019, 375);
@@ -37,7 +37,7 @@ function draw(){
     ground3.display();
 
     bullet.display();
-    sling.display();
+    gun.display();
 
     box1.display();
     box2.display();
@@ -53,14 +53,14 @@ function mouseDragged(){
 }
 
 function mouseReleased(){
-    sling.fly();
+    rope.fly();
     gameState = "deployed";
 }
 
 function keyPressed(){
     if(keyCode == 32){
         Matter.Body.setPosistion(bullet.body, {x:200, y:350})
-        sling.attach(bullet.body)
+        rope.attach(bullet.body)
         gameState = "readyToLaunch";
     }
 } 
