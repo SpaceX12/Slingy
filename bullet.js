@@ -5,6 +5,7 @@ class Bullet{
         friction:0.5,
         density:1.2
       }
+      
       this.body = Bodies.rectangle(x, y, width, height, options);
       this.width = 10;
       this.height = 15;
@@ -15,7 +16,7 @@ class Bullet{
     display() {
       var pos= this.body.position;
       rectMode(CENTER);
-      fill(255, 255, 255);
+      fill(55, 90, 82);
       rect(pos.x, pos.y, this.width, this.height);
     }
-  }
+}

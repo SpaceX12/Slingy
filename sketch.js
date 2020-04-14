@@ -16,16 +16,16 @@ function setup(){
     world = engine.world;
 
     ground1 = new Ground(1020, 180, 108, 10);
-    ground2 = new Ground(1020, 370, 110, 10);
-    ground3 = new Ground(120, 430, 200, 20);
+    ground2 = new Ground(1020, 380, 110, 10);
+    ground3 = new Ground(550, 430, 1100, 20);
 
-    bullet = new Bullet(200, 35);
+    bullet = new Bullet(150, 35, 10, 5);
     gun = new Rope(bullet.body, {x:200, y:350});
 
-    box1 = new Target(1019, 375);
-    box2 = new Target(1019, 375);
-    box3 = new Target(1019, 175);
-    box4 = new Target(1019, 165); 
+    box1 = new Target(1019, 379, 20, 50);
+    box2 = new Target(1019, 379, 20, 50);
+    box3 = new Target(1019, 179, 20, 50);
+    box4 = new Target(1019, 179, 20, 50); 
 }    
 
 function draw(){
@@ -43,7 +43,9 @@ function draw(){
     box2.display();
     box3.display();
     box4.display();
-     
+
+    text("Use the mouse to drag the bullet and release it to launch", 550, 20);
+    text("Press space to reset the bullet", 550, 40);
 }
 
 function mouseDragged(){
@@ -53,14 +55,14 @@ function mouseDragged(){
 }
 
 function mouseReleased(){
-    rope.fly();
+    gun.fly();
     gameState = "deployed";
 }
 
 function keyPressed(){
     if(keyCode == 32){
-        Matter.Body.setPosistion(bullet.body, {x:200, y:350})
-        rope.attach(bullet.body)
+        Matter.Body.setPosition(bullet.body, {x:200, y:350})
+        gun.attach(bullet.body)
         gameState = "readyToLaunch";
     }
 } 

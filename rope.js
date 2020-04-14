@@ -10,24 +10,32 @@ class Rope{
         World.add(world, this.rope);
     }
 
-    fly(){
-        this.rope.bodyA = null;
-    }
-
     attach(body){
         this.rope.bodyA = body;
     }
 
+    fly(){
+        this.rope.bodyA = null;
+    }
+
     display(){
-        if(this.rope.bodyA){
+        if(this.rope.bodyA && this.pointB ){
             var pointA = this.rope.bodyA.position;
-            var pointB = this.pointB;
+
+            if(this.pointB){
+                var pointB = this.pointB;
+            }else{
+                console.log("error")
+            }
+            var x = pointB.x;
+            var y = pointB.y;
+            
             push();
             
             stroke(48,22,8);
             if(pointA.x < 220) {
                 strokeWeight(7);
-                line(pointA.x - 20, pointA.y, pointB.x -10, pointB.y);
+                line(pointA.x - 20, pointA.y, pointB.x - 10, pointB.y);
                 line(pointA.x - 20, pointA.y, pointB.x + 30, pointB.y - 3);
             }
             else{

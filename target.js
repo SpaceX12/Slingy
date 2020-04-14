@@ -5,9 +5,10 @@ class Target{
             friction:1.0,
             density:0.5
         }
-        this.body = this.Bodies.rectangle(x, y, width, height, options);
-        this.width = 10;
-        this.height = 5;  
+        
+        this.body = Bodies.rectangle(x, y, width, height, options);
+        this.width = 20;
+        this.height = 30;  
 
         World.add(world, this.body);
     }
