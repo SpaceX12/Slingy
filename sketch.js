@@ -4,12 +4,14 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
+
 var ground1, ground2, ground3, gun;
 var bullet, box1, box2, box3, box4;
 
 var gameState = "readyToLaunch";
 
 function setup(){
+
     var canvas = createCanvas(1100, 450);
 
     engine = Engine.create();
@@ -17,9 +19,9 @@ function setup(){
 
     ground1 = new Ground(1020, 180, 108, 10);
     ground2 = new Ground(1020, 380, 110, 10);
-    ground3 = new Ground(550, 430, 1100, 20);
+    ground3 = new Ground(550, 445, 1100, 20);
 
-    bullet = new Bullet(150, 35, 10, 5);
+    bullet = new Bullet(150, 350, 10, 5);
     gun = new Rope(bullet.body, {x:200, y:350});
 
     box1 = new Target(1019, 379, 20, 50);
@@ -45,7 +47,7 @@ function draw(){
     box4.display();
 
     text("Use the mouse to drag the bullet and release it to launch", 550, 20);
-    text("Press space to reset the bullet", 550, 40);
+    text("Press space to reset the block", 550, 40);
 }
 
 function mouseDragged(){

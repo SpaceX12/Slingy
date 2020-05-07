@@ -6,7 +6,8 @@ class Rope{
             stiffness: 0.04,
             length: 10
         }
-         this.rope = Constraint.create(options);
+
+        this.rope = Constraint.create(options);
         World.add(world, this.rope);
     }
 
@@ -19,6 +20,7 @@ class Rope{
     }
 
     display(){
+
         if(this.rope.bodyA && this.pointB ){
             var pointA = this.rope.bodyA.position;
 
@@ -27,12 +29,15 @@ class Rope{
             }else{
                 console.log("error")
             }
+
             var x = pointB.x;
             var y = pointB.y;
+                        
             
             push();
+            stroke(255, 255, 255);
+            strokeWeight(10);
             
-            stroke(48,22,8);
             if(pointA.x < 220) {
                 strokeWeight(7);
                 line(pointA.x - 20, pointA.y, pointB.x - 10, pointB.y);
@@ -43,6 +48,7 @@ class Rope{
                 line(pointA.x + 25, pointA.y, pointB.x -10, pointB.y);
                 line(pointA.x + 25, pointA.y, pointB.x + 30, pointB.y - 3);
             }
+            
             pop();
         }
     }
